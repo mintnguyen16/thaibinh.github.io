@@ -3,105 +3,339 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — Product Manager</title>
-  <meta name="description" content="Product Manager portfolio" />
+  <title>Binh Nguyen — Product Manager</title>
+  <meta name="description" content="Binh Nguyen — Product Manager portfolio: case studies, experience, skills, and contact." />
   <style>
-    body { font-family: Arial, sans-serif; max-width: 920px; margin: 40px auto; padding: 0 16px; line-height: 1.6; }
-    .top { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; }
-    .muted { color:#555; }
-    .links a { margin-right: 10px; }
-    .tag { display:inline-block; padding:6px 10px; margin:6px 6px 0 0; border:1px solid #ddd; border-radius:999px; font-size: 13px; }
-    .card { border:1px solid #eee; border-radius:12px; padding:16px; margin:14px 0; }
-    h1 { margin: 0; }
-    h2 { margin: 22px 0 10px; }
-    ul { margin-top: 8px; }
+    :root{
+      --bg:#0b0f17;
+      --card:#0f172a;
+      --text:#e6edf7;
+      --muted:#a8b3c7;
+      --line:rgba(255,255,255,.10);
+      --accent:#6ee7ff;
+      --accent2:#a78bfa;
+      --shadow: 0 14px 40px rgba(0,0,0,.35);
+      --radius:18px;
+      --max: 1050px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--font);
+      background:
+        radial-gradient(900px 500px at 20% -10%, rgba(110,231,255,.18), transparent 60%),
+        radial-gradient(900px 500px at 100% 20%, rgba(167,139,250,.18), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 70px}
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,15,23,.85), rgba(11,15,23,.45));
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800}
+    .dot{width:10px; height:10px; border-radius:999px; background:linear-gradient(135deg,var(--accent),var(--accent2))}
+    .links{display:flex; gap:10px; flex-wrap:wrap}
+    .links a{
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+      text-decoration:none;
+    }
+    .links a:hover{color:var(--text); border-color:var(--line); background:rgba(255,255,255,.03)}
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding:22px;
+    }
+    .hero{
+      padding:34px 0 10px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){ .hero{grid-template-columns:1fr} }
+    h1{margin:0 0 10px; font-size:44px; line-height:1.05; letter-spacing:-0.02em}
+    @media (max-width: 520px){ h1{font-size:36px} }
+    .subtitle{color:var(--muted); margin:0 0 16px; font-size:16px}
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      font-weight:700;
+      text-decoration:none;
+    }
+    .btn.primary{
+      border-color: transparent;
+      background: linear-gradient(135deg, rgba(110,231,255,.22), rgba(167,139,250,.22));
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .pill{
+      font-size:13px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);
+      background:rgba(255,255,255,.02);
+    }
+    section{margin-top:16px}
+    h2{margin:0 0 12px; font-size:20px}
+    h3{margin:0 0 6px; font-size:16px}
+    .muted{color:var(--muted)}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .col-6{grid-column: span 6}
+    .col-12{grid-column: span 12}
+    @media (max-width: 900px){ .col-6{grid-column: span 12} }
+    ul{margin:10px 0 0; padding-left:18px}
+    li{margin:6px 0}
+    .kpi{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .kpi span{
+      font-size:13px;
+      color:var(--text);
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      padding:8px 10px;
+      border-radius:12px;
+    }
+    footer{margin-top:24px; color:var(--muted); font-size:13px}
+    .hr{height:1px; background:var(--line); margin:14px 0}
   </style>
 </head>
 <body>
-
-  <div class="top">
-    <div>
-      <h1>Your Name</h1>
-      <p class="muted"><b>Product Manager</b> — Write 1–2 lines: domain, strengths, the kind of products you build.</p>
+  <header>
+    <div class="nav">
+      <div class="brand"><span class="dot"></span> Binh Nguyen</div>
       <div class="links">
-        <a href="mailto:you@email.com">Email</a>
-        <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="https://github.com/yourusername" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="#case-studies">Case studies</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="hero">
+      <div class="card">
+        <h1>Binh Nguyen</h1>
+        <p class="subtitle">
+          Technical Product Manager • CSPO • 9+ years across SEA, South Africa, and Europe.
+          I build and launch products end-to-end: discovery → delivery → growth.
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="#contact">Contact</a>
+          <a class="btn" href="#case-studies">View case studies</a>
+        </div>
+
+        <div class="pillrow">
+          <div class="pill">Fintech & Payments</div>
+          <div class="pill">Growth & Conversion</div>
+          <div class="pill">Compliance / KYC</div>
+          <div class="pill">Mobile & Web</div>
+          <div class="pill">Agile delivery</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Quick info</h2>
+        <p class="muted" style="margin:0 0 10px">
+          Belgium • Open to Product roles • Web/Mobile • Cross-functional leadership
+        </p>
+        <div class="hr"></div>
+        <p style="margin:0"><b>Email:</b> <a href="mailto:thaibinh161292@gmail.com">thaibinh161292@gmail.com</a></p>
+        <p style="margin:8px 0 0"><b>Phone:</b> +32 479 217 677</p>
+        <p style="margin:8px 0 0"><b>LinkedIn:</b>
+          <!-- Replace # with your LinkedIn URL -->
+          <a href="#" target="_blank" rel="noreferrer">Add your LinkedIn link</a>
+        </p>
+        <p style="margin:8px 0 0"><b>GitHub:</b>
+          <a href="https://github.com/mintnguyen16" target="_blank" rel="noreferrer">github.com/mintnguyen16</a>
+        </p>
       </div>
     </div>
 
-    <div>
-      <div class="tag">Roadmapping</div>
-      <div class="tag">User research</div>
-      <div class="tag">Analytics</div>
-      <div class="tag">Stakeholder mgmt</div>
-    </div>
+    <section id="case-studies">
+      <h2>Case studies (high-signal highlights)</h2>
+      <div class="grid">
+        <div class="card col-6">
+          <h3>Samsung Shop — Flagship launches & promotions (S23/S24/S25, Galaxy Ring)</h3>
+          <p class="muted" style="margin:0">Technical PM • Web/App commerce</p>
+          <ul>
+            <li><b>Problem:</b> Execute high-stakes launches with complex promotion setups (trade-in, bundles, packages) while keeping speed & accuracy.</li>
+            <li><b>What I did:</b> Led launch execution and promo configuration; used SAP for promotion setup; collaborated with internal teams to enhance SAP tooling.</li>
+            <li><b>Impact:</b> Improved promotion configuration efficiency by <b>30%</b> and supported digital engagement & conversion during major releases.</li>
+          </ul>
+          <div class="kpi">
+            <span>+30% efficiency</span>
+            <span>Launch execution</span>
+            <span>Promo optimization</span>
+          </div>
+        </div>
+
+        <div class="card col-6">
+          <h3>TYMEX — KYC/compliance onboarding (2 markets)</h3>
+          <p class="muted" style="margin:0">Senior PM • Fintech onboarding & compliance</p>
+          <ul>
+            <li><b>Problem:</b> Improve onboarding success while meeting regulatory requirements across multiple markets.</li>
+            <li><b>What I did:</b> Orchestrated KYC/compliance-driven onboarding; drove roadmap & agile delivery with 15+ engineers/designers/analysts; partnered with Legal/Risk/Compliance.</li>
+            <li><b>Impact:</b> Biometric success <b>+25%</b>, churn reduced to <b>15%</b>, SmartApp conversion reached <b>70%</b>, activation <b>+18%</b>.</li>
+          </ul>
+          <div class="kpi">
+            <span>+25% biometric success</span>
+            <span>Churn ↓ to 15%</span>
+            <span>70% conversion</span>
+            <span>+18% activation</span>
+          </div>
+        </div>
+
+        <div class="card col-6">
+          <h3>Shopee — ShopeePay integration & loyalty scaling</h3>
+          <p class="muted" style="margin:0">Senior PM • Payments & retention</p>
+          <ul>
+            <li><b>Problem:</b> Increase payment conversion and repeat purchases at scale across SEA.</li>
+            <li><b>What I did:</b> Delivered Shopee–ShopeePay integration; led rollout of scalable payment & loyalty features; partnered with BI/data science to define KPIs and prioritization.</li>
+            <li><b>Impact:</b> Payment conversion <b>+50%</b>, total transactions <b>+30%</b>, repeat purchases <b>+12%</b>.</li>
+          </ul>
+          <div class="kpi">
+            <span>+50% conversion</span>
+            <span>+30% transactions</span>
+            <span>+12% repeat purchases</span>
+          </div>
+        </div>
+
+        <div class="card col-6">
+          <h3>Grab — Merchant/driver tools & operations improvements</h3>
+          <p class="muted" style="margin:0">Product Ops → PM track • Marketplace ops</p>
+          <ul>
+            <li><b>Problem:</b> Improve onboarding and operational workflows for merchants/drivers; increase efficiency & growth.</li>
+            <li><b>What I did:</b> Championed rollout of merchant & driver apps; coordinated with product/ops/engineering to scale usability; translated client feedback into roadmap inputs.</li>
+            <li><b>Impact:</b> Delivery time <b>-25%</b>, sales productivity <b>+33%</b>, GMV growth <b>+25%</b>, onboarding improvement <b>+20%</b>.</li>
+          </ul>
+          <div class="kpi">
+            <span>-25% delivery time</span>
+            <span>+33% productivity</span>
+            <span>+25% GMV</span>
+            <span>+20% onboarding</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <div class="card">
+        <h3>Samsung Electronics — Technical Product Manager</h3>
+        <p class="muted" style="margin:0">Frankfurt, Germany • 2023 – Present</p>
+        <ul>
+          <li>Launched flagship products and promotions on Samsung Shop web/app (Galaxy S23/S24/S25, Galaxy Ring).</li>
+          <li>Configured and optimized trade-in, mobile packages, and bundle promotions; managed setup via SAP.</li>
+          <li>Partnered with internal teams to improve SAP tools, increasing promotion configuration efficiency by 30%.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>TYMEX — Senior Product Manager</h3>
+        <p class="muted" style="margin:0">HCMC, Vietnam • May 2021 – Mar 2023</p>
+        <ul>
+          <li>Drove KYC/compliance onboarding in two markets; improved biometric success by 25% and reduced churn to 15%.</li>
+          <li>Owned roadmap and agile delivery with 15+ engineers/designers/analysts.</li>
+          <li>Improved activation by 18% via performance tracking and feedback loops.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Sea Group (Shopee) — Senior Product Manager</h3>
+        <p class="muted" style="margin:0">HCMC, Vietnam • Sep 2019 – Apr 2021</p>
+        <ul>
+          <li>Delivered Shopee–ShopeePay integration (+50% payment conversion, +30% transactions).</li>
+          <li>Scaled loyalty/payment features across SEA (+12% repeat purchases).</li>
+          <li>Defined KPIs with BI/data science to improve prioritization.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Grab — Product Operations Manager / Key Account Manager</h3>
+        <p class="muted" style="margin:0">HCMC, Vietnam • 2017 – 2019</p>
+        <ul>
+          <li>Rolled out merchant/driver apps; reduced delivery time by 25% and boosted sales productivity by 33%.</li>
+          <li>Improved onboarding by 20% by translating client feedback into product improvements.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Amaris — Key Account Manager</h3>
+        <p class="muted" style="margin:0">HCMC, Vietnam • 2016 – 2017</p>
+        <ul>
+          <li>Reduced task turnaround time by 35% and improved SLA adherence by 20% through structured intake & follow-up.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills & tools</h2>
+      <div class="card">
+        <div class="pillrow">
+          <div class="pill">Product Strategy</div>
+          <div class="pill">Roadmap Planning</div>
+          <div class="pill">Agile & Scrum (CSPO)</div>
+          <div class="pill">KPI / OKR Tracking</div>
+          <div class="pill">A/B Testing</div>
+          <div class="pill">User Research</div>
+          <div class="pill">UX/UI Collaboration</div>
+          <div class="pill">GTM Execution</div>
+          <div class="pill">Fintech & Payments</div>
+        </div>
+        <div class="hr"></div>
+        <p class="muted" style="margin:0"><b>Tools:</b> Jira, Confluence, Figma, Amplitude, Google Analytics, SQL, Tableau, Notion, Drawio, Slack, Trello</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <p style="margin:0">
+          Email: <a href="mailto:thaibinh161292@gmail.com">thaibinh161292@gmail.com</a><br/>
+          Phone: +32 479 217 677<br/>
+          Location: Belgium
+        </p>
+        <p class="muted" style="margin:12px 0 0">
+          Tip: add your LinkedIn link in the “Quick info” box for recruiters.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Binh Nguyen
+    </footer>
   </div>
 
-  <h2>About</h2>
-  <div class="card">
-    <p>
-      Write a short professional summary: years of experience, industries, what you’re proud of.
-      Example: “PM in fintech/banking, focusing on risk, compliance, and internal tools…”
-    </p>
-  </div>
-
-  <h2>Case Studies</h2>
-
-  <div class="card">
-    <h3>Project / Product Name #1</h3>
-    <p class="muted">Problem → Solution → Impact</p>
-    <ul>
-      <li><b>Problem:</b> What was broken / missing?</li>
-      <li><b>Users:</b> Who used it?</li>
-      <li><b>What I did:</b> Discovery, PRD, roadmap, metrics, delivery…</li>
-      <li><b>Impact:</b> Add numbers if you can (time saved, % improvement, cost reduced).</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h3>Project / Product Name #2</h3>
-    <p class="muted">Problem → Solution → Impact</p>
-    <ul>
-      <li><b>Problem:</b> …</li>
-      <li><b>Users:</b> …</li>
-      <li><b>What I did:</b> …</li>
-      <li><b>Impact:</b> …</li>
-    </ul>
-  </div>
-
-  <h2>Experience</h2>
-  <div class="card">
-    <h3>Company — Role</h3>
-    <p class="muted">2023–Present · City/Remote</p>
-    <ul>
-      <li>1 strong bullet with outcome</li>
-      <li>1 strong bullet with ownership</li>
-      <li>1 strong bullet with collaboration</li>
-    </ul>
-  </div>
-
-  <h2>Skills & Tools</h2>
-  <div class="card">
-    <div class="tag">Product strategy</div>
-    <div class="tag">Backlog</div>
-    <div class="tag">PRD</div>
-    <div class="tag">A/B testing</div>
-    <div class="tag">SQL (basic)</div>
-    <div class="tag">Figma</div>
-    <div class="tag">Jira</div>
-  </div>
-
-  <h2>Contact</h2>
-  <div class="card">
-    <p>
-      Email me at <a href="mailto:you@email.com">you@email.com</a>.
-      Or message me on <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noreferrer">LinkedIn</a>.
-    </p>
-  </div>
-
-  <p class="muted">© <span id="y"></span> Your Name</p>
   <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
-
 </body>
 </html>
